@@ -47,3 +47,8 @@ def docopt_cmd(func):
     fn.__doc__ = func.__doc__
     fn.__dict__.update(func.__dict__)
     return fn
+
+class AmityInteractive(cmd.Cmd):
+    intro = 'Welcome to Amity Room allocation!' \
+            +'Type help for a list of commands'
+    prompt = '|amity|>'
