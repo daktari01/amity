@@ -2,7 +2,7 @@ import unittest
 
 from src.people import Person, Staff, Fellow
 
-class TestPople(unittest.TestCase):
+class TestPeople(unittest.TestCase):
     """
     Class to test the people module
     """
