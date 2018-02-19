@@ -1,3 +1,5 @@
+from app import AmityInteractive
+
 class Room:
     """Class for general room"""
     def __init__(self, room_name, occupants, max_occupants):
@@ -7,8 +9,8 @@ class Room:
 
     def is_full(self, occupants, max_occupants):
         return True if self.occupants == self.max_occupants else False
-
-
+        
+        
 class LivingSpace(Room):
     """Class LivingSpace inherits from class Room"""
     def __init__(self, room_name, occupants=0, max_occupants=4):

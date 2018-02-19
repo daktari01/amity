@@ -1,20 +1,12 @@
 """
-This example uses docopt with the built in cmd module to demonstrate an
-interactive command application.
 Usage:
-    my_program tcp <host> <port> [--timeout=<seconds>]
-    my_program serial <port> [--baud=<n>] [--timeout=<seconds>]
-    my_program (-i | --interactive)
-    my_program (-h | --help | --version)
-Options:
-    -i, --interactive  Interactive Mode
-    -h, --help  Show this screen and exit.
-    --baud=<n>  Baudrate [default: 9600]
+    create_room (office|living) <room_name> ...
 """
 
 import sys
 import cmd
 from docopt import docopt, DocoptExit
+from src.amity import Amity
 
 # Create the docopt decorator
 # Credits: https://goo.gl/XnKwb4
@@ -49,6 +41,16 @@ def docopt_cmd(func):
     return fn
 
 class AmityInteractive(cmd.Cmd):
+    
     intro = 'Welcome to Amity Room allocation!' \
             +'Type help for a list of commands'
     prompt = '|amity|>'
+    the_amity = Amity()
+    
+    
+    @docopt_cmd
+    def do_create_room(self, args):
+        """
+        Usage: create_room <room_type> <room_name> ...
+        """
+        self.the_amity.create_room(args)

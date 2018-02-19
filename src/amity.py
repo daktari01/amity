@@ -1,6 +1,19 @@
+from src.rooms import Room, Office, LivingSpace
+
 class Amity:
     """
     Implement room allocation logic
     """
     def __init__(self):
-        pass
+        self.all_rooms = []
+        
+    def create_room(self, args):
+        for room in args['<room_name>']:
+            if room.lower() in self.all_rooms:
+                print("Room {} already exists. Try with a different name".format(room))
+                return
+            if args['<room_type>'].lower() not in ['office', 'living']:
+                print("Room type can only be office or living")
+                return
+            new_room = Office(room) if args['office'] else LivingSpace(room)
+                
