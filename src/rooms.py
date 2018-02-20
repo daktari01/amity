@@ -1,5 +1,3 @@
-from app import AmityInteractive
-
 class Room:
     """Class for general room"""
     def __init__(self, room_name, occupants, max_occupants):

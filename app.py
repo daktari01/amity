@@ -54,3 +54,7 @@ class AmityInteractive(cmd.Cmd):
         Usage: create_room <room_type> <room_name> ...
         """
         self.the_amity.create_room(args)
+        
+if __name__ == '__main__':
+    # print(colored(__doc__, 'cyan'))
+    AmityInteractive().cmdloop()

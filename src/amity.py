@@ -15,5 +15,10 @@ class Amity:
             if args['<room_type>'].lower() not in ['office', 'living']:
                 print("Room type can only be office or living")
                 return
-            new_room = Office(room) if args['office'] else LivingSpace(room)
+            new_room = Office(room) if args['<room_type>'].lower == 'office' else LivingSpace(room)
+            print(args['<room_type>'] + ' ' + ['<room_name>'] + 'created successfully')
+            # if args['office']:
+            #     new_room = Office(room)
+            # else:
+            #     new_room = LivingSpace(room)
                 
