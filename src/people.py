@@ -10,8 +10,9 @@ class Fellow(Person):
     """
     Class to define a fellow
     """
-    def __init__(self, person_name):
+    def __init__(self, person_name, wants_accommodation="N"):
         super().__init__(person_name)
+        self.wants_accommodation = wants_accommodation
 
 
 class Staff(Person):

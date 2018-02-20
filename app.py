@@ -1,6 +1,7 @@
 """
 Usage:
     create_room (office|living) <room_name> ...
+    add_person <first_name> <last_name> (staff|fellow) [wants_accommodation]
 """
 
 import sys
@@ -54,6 +55,15 @@ class AmityInteractive(cmd.Cmd):
         Usage: create_room <room_type> <room_name> ...
         """
         self.the_amity.create_room(args)
+
+    @docopt_cmd
+    def do_add_person(self, args):
+        """
+        Usage: \
+        add_person <first_name> <last_name> <person_type> \
+        [<wants_accommodation>]
+        """
+        self.the_amity.add_person(args)
         
 if __name__ == '__main__':
     # print(colored(__doc__, 'cyan'))
