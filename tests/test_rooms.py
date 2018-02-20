@@ -8,9 +8,9 @@ class TestRooms(unittest.TestCase):
     """
     def setUp(self):
         """Method to initialize variables"""
-        self.room = Room('Test_room', 2, 4)
-        self.living = LivingSpace('Test_living')
-        self.office = Office('Test_office')
+        self.room = Room('Test_room', 'office', 2, 4)
+        self.living = LivingSpace('living', 'Test_living')
+        self.office = Office('office', 'Test_office')
 
     def test_livingspace_inherits_room(self):
         """Test whether class LivingSpace is a sub class of class Room"""
@@ -34,8 +34,8 @@ class TestRooms(unittest.TestCase):
 
     def test_is_full(self):
         """Test the is_full method functions correctly"""
-        not_full = Room('Not Full', 3, 6)
-        full = Room('Test_Full', 4, 4)
+        not_full = Room('office', 'Not Full', 3, 6)
+        full = Room('living', 'Test_Full', 4, 4)
         self.assertFalse(not_full.is_full(3, 6))
         self.assertTrue(full.is_full(4, 4))
 

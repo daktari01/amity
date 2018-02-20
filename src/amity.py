@@ -10,12 +10,15 @@ class Amity:
     def create_room(self, args):
         for room in args['<room_name>']:
             if room.lower() in self.all_rooms:
-                print("{} {} already exists. Try with a different name".format(args['<room_type>'], room))
+                print("{} {} already exists. Try with a different name".format(
+                    args['<room_type>'], room))
                 return
             if args['<room_type>'].lower() not in ['office', 'living']:
                 print("Room type can only be office or living")
                 return
-            new_room = Office(room) if args['<room_type>'].lower == 'office' else LivingSpace(room)
+            new_room = Office(args['<room_type>'], room) if args[
+                '<room_type>'].lower == 'office' else LivingSpace(args[
+                    '<room_type>'], room)
             self.all_rooms.append(room.lower())
             print(args['<room_type>'] + ' ' + room + ' ' + 'created successfully')
             
