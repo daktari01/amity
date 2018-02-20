@@ -44,7 +44,7 @@ class AmityInteractive(cmd.Cmd):
     
     intro = 'Welcome to Amity Room allocation!' \
             +'Type help for a list of commands'
-    prompt = '|amity|>'
+    prompt = '|amity|> '
     the_amity = Amity()
     
     
