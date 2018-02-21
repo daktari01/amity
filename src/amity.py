@@ -28,13 +28,13 @@ class Amity:
             ' + 'created successfully')
             
     def add_person(self, args):
-        person_name = args['<first_name>'] + ' ' + args['<last_name>']
+        person_name = args['<first_name>'].lower() + ' ' + args['<last_name>'].lower()
         if (args['<first_name>'].isalpha() or args['<last_name>'].isalpha()) == False:
             print("Names of people should contain alphabets only.")
             return
         
         # Check for duplicate entries YET TO WORK
-        if person_name.lower() in self.all_people:
+        if person_name in self.all_people:
             print(person_name + " already exists. Try another one.")
             return
         
@@ -46,10 +46,10 @@ class Amity:
             print("Staff cannot be allocated living spaces")
             return
         if args['<person_type>'].lower() == 'staff':
-            new_person = Staff(person_name) 
-            self.all_people.append(new_person)
-            self.all_staff.append(new_person)
-            print(person_name + " has been added as a " + args['<person_type>'] + " successfully.")
+            # new_person = Staff(person_name) 
+            self.all_people.append(person_name)
+            self.all_staff.append(person_name)
+            print(person_name.title() + " has been added as a " + args['<person_type>'] + " successfully.")
 
         if args['<wants_accommodation>'] not in [
             "N", "n", "no", "No", "Y", "Yes", None]:
